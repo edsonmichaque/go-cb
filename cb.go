@@ -21,6 +21,7 @@ type Breaker struct {
 	Timeout          int
 }
 
+// State
 func (b *Breaker) State() State {
 	switch {
 	case b.failures > b.failureThreshold && time.Since(b.lastFailedAt) > b.resetAfter:
